@@ -1,0 +1,31 @@
+https://unix.stackexchange.com/questions/233327/is-it-possible-to-clone-only-part-of-a-git-project
+
+git repo parçalı kopyalama: 
+503 git init
+ 504 git remote add origin clarus:clarusway/clarusway-devops-8-21.git
+ 505 git remote -v
+ 506 git config core.sparseCheckout true
+ 507 echo "projects/206-Kubernetes-Microservice-Phonebook/" > .git/info/sparse-checkout
+ 508 cat .git/info/sparse-checkout 
+ 509 clear
+ 510 git pull origin main
+ 511 cat .git/info/sparse-checkout 
+ 512 ls
+ 513 cd projects/
+ 514 ls
+ 515 cd 206-Kubernetes-Microservice-Phonebook/
+ 516 clear
+ 517 history
+
+ ***
+
+Host clarus
+  HostName github.com
+  User git
+  IdentityFile /Users/home/.ssh/companyX.id_rsa
+  IdentitiesOnly yes
+
+***
+AWS CLI STACK OLUSTURMA:
+aws cloudformation create-stack --stack-name matt-k8s-proj-206 --template-body file://kubernetes-env-cf.yaml 
+--parameters ParameterKey=KeyPairName,ParameterValue=mattskey --capabilities CAPABILITY_IAM
